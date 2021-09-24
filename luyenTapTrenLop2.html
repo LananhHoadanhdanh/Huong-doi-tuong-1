@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class HocVien {
+        name;
+        score;
+        constructor(name) {
+            this.name = name;
+            this.score = 0;
+        }
+        getInfor() {
+            return 'Name: ' + this.name + '; Score: ' + this.score
+        }
+        lamBai() {
+            this.score += 2
+        }
+        ghiNote() {
+            this.score += 1
+        }
+        tangDiem(x, studen) {
+            studen.score = studen.score + x;
+            this.score -= x;
+        }
+    }
+
+    let hocVien1 = new HocVien('Chi Tử');
+    let hocVien2 = new HocVien('Dành Dành');
+    hocVien1.lamBai();
+    hocVien1.lamBai();
+    hocVien1.ghiNote();
+    hocVien1.tangDiem(1, hocVien2)
+    document.write(hocVien1.getInfor() + '<br>')
+    document.write(hocVien2.getInfor())
+</script>
