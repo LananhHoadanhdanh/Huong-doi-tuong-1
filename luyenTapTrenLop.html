@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class Hooman {
+        name;
+        height;
+        gender;
+        constructor(name, height, gender) {
+            this.name = name;
+            this.height = height;
+            this.gender = gender;
+        }
+        getInfor() {
+            return 'Name: ' + this.name + '; Height: ' + this.height + '; Gender: ' + this.gender
+        }
+        study(benkyou) {
+            return benkyou
+        }
+        greeting(aisatsu) {
+            return aisatsu
+        }
+    }
+
+    let hooman1 = new Hooman('Anh Chi Tử', 158, 'female');
+    document.write(hooman1.getInfor() + '<br>')
+    document.write(hooman1.study('Học, học nữa, thi lại vẫn học') + '<br>')
+    document.write(hooman1.greeting('皆さん、こんにちは！') + '<br>')
+</script>
