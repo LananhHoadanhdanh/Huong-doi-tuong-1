@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    class Temperature {
+        celsius;
+        constructor(celsius) {
+            this.celsius = celsius;
+        }
+        convertToFahrenheit() {
+            return this.celsius * 1.8 + 32;
+        }
+        convertToKelvin() {
+            return this.celsius + 273.15;
+        }
+    }
+    let number = +prompt('Nhập số độ C cần chuyển')
+    if (number < -273) {
+        alert('Nhiệt độ nhỏ nhất là -273 độ C!')
+    } else {
+    let celsius1 = new Temperature(number);
+    document.write(celsius1.celsius + ' độ C bằng với ' + celsius1.convertToFahrenheit() + ' độ F' +'<br>')
+    document.write(celsius1.celsius + ' độ C bằng với ' + celsius1.convertToKelvin() +  ' độ K' +'<br>')
+    }
+
+</script>
