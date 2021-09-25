@@ -25,17 +25,24 @@
         tinhChuVi() {
             return (this.chieuDai + this.chieuRong) * 2;
         }
-        veHinh(mauSac) {
+        getRandomColor() {
+            let red = Math.floor(Math.random() * 255);
+            let green = Math.floor(Math.random() * 255);
+            let blue = Math.floor(Math.random() * 255);
+            return "rgb(" + red + "," + blue + "," + green + ")";
+        }
+        veHinh() {
             let ctx = document.getElementById("myCanvas").getContext("2d");
-            ctx.fillStyle = mauSac;
-            ctx.fillRect(0,0,150,75);
+            ctx.fillStyle = this.getRandomColor();
+            ctx.fillRect(this.x, this.y, this.chieuDai, this.chieuRong);
+            ctx.fill();
         }
     }
     let x = Math.random() * 684;
     let y = Math.random() * 384;
-    let dai = Math.random() * 100;
-    let rong = Math.random() * 80;
+    let dai = Math.random() * 684;
+    let rong = Math.random() * 384;
     let hcn = new HinhChuNhat(x, y, dai, rong)
-
+    hcn.veHinh()
     document.getElementById('tinhToan').innerHTML = "Diện tích hình chữ nhật là " + hcn.tinhDienTich() + '<br>' + "Chu vi hình chữ nhật là " + hcn.tinhChuVi()
 </script>
