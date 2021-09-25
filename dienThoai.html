@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class Mobile {
+        name;
+        onOff;
+        trangThaiPin;
+        tinNhanDangSoan;
+        hopThuDen;
+        tinDaGui;
+        constructor(name,onOff,trangThaiPin,tinNhanDangSoan, hopThuDen, tinDaGui) {
+            this.name = name;
+            this.onOff = onOff;
+            this.trangThaiPin = 100
+            this.tinNhanDangSoan = tinNhanDangSoan
+            this.hopThuDen = hopThuDen
+            this.tinDaGui = tinDaGui
+        }
+        moDienThoai() {
+            this.trangThaiPin --
+            if (this.trangThaiPin < 0) {
+                this.onOff = false;
+            } else {
+                this.onOff = true;
+            }
+        }
+        tatDienThoai() {
+            this.onOff = false;
+            this.trangThaiPin --
+        }
+        soanTinNhan() {
+            if (this.onOff === true) {
+                this.tinNhanDangSoan ++
+                this.trangThaiPin --
+            } else {
+                return 'Điện thoại của ' + this.name + ' đang tắt, không thể soạn tin nhắn'
+            }
+        }
+        nhanTinNhan() {
+            if (this.onOff === true) {
+                this.hopThuDen ++
+                this.trangThaiPin --
+            } else {
+                return 'Điện thoại của ' + this.name + ' đang tắt, không thể nhắn tin.'
+            }
+        }
+        guiTinNhan() {
+            if (this.onOff === true) {
+                this.tinDaGui ++
+                this.tinNhanDangSoan --
+                this.trangThaiPin --
+            } else {
+                return 'Điện thoại của ' + this.name + ' đang tắt, không thể gửi tin nhắn.'
+            }
+        }
+        xemTinNhanDen (message, people) {
+            if (this.onOff === true) {
+                this.trangThaiPin --
+                return this.name + " có một tin nhắn từ " + people + " với nội dung là " + message;
+            } else {
+                return 'Điện thoại của ' + this.name + ' đang tắt, không thể xem.'
+            }
+        }
+        xemTinDaGui(message, people) {
+            if (this.onOff === true) {
+                this.trangThaiPin --
+                return this.name + " đã gửi một tin nhắn đến " + people + " với nội dung là " + message;
+
+            } else {
+                return 'Điện thoại của ' + this.name + ' đang tắt, không thể xem.'
+            }
+        }
+        checkOnOff() {
+            this.trangThaiPin --
+            if (this.onOff === true) {
+                return 'Điện thoại của ' + this.name + ' đang bật.'
+            } else {
+                return 'Điện thoại của ' + this.name + ' đang tắt.'
+            }
+        }
+        checkPin() {
+            if (this.onOff === false) {
+                return 'Điện thoại của ' + this.name + ' đang tắt, không thể kiểm tra.'
+            } else {
+                this.trangThaiPin --
+                return 'Điện thoại của ' + this.name + ' còn ' + this.trangThaiPin + ' pin';
+
+            }
+        }
+    }
+
+    let nokia = new Mobile('Chi Tử',false,100,5, 5, 5);
+    let iphone = new Mobile('Dành Dành',false,100,5, 5, 5);
+    nokia.moDienThoai();
+    nokia.soanTinNhan();
+    nokia.guiTinNhan();
+    let x = nokia.xemTinDaGui('"Ê, đi chơi không".' , iphone.name);
+    document.write(x + '<br>')
+    iphone.moDienThoai()
+    iphone.nhanTinNhan()
+    let y = iphone.xemTinNhanDen('"Ê, đi chơi không".' , nokia.name);
+    document.write(y + '<br>')
+    iphone.tatDienThoai()
+    document.write(nokia.checkOnOff() + '<br>')
+    document.write(nokia.checkPin() + '<br>')
+
+</script>
